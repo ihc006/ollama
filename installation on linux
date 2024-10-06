@@ -1,0 +1,34 @@
+# Install Ollama
+
+https://github.com/ollama/ollama
+
+curl -fsSL https://ollama.com/install.sh | sh
+
+ollama pull llama3.1
+
+
+# https://ollama.com/library/llama3.1   
+# ollama pull llama3.1:70b
+
+
+ollama serve     # Run the following command to start ollama without running the desktop application.
+
+
+
+# Create and activate Virtual environment  for python
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+pip install -U langchain-ollama
+
+# main.py 
+
+from langchain_ollama import OllamaLLM
+
+llm = OllamaLLM(model="llama3.1")
+
+response = llm.invoke("The first man on the moon was ...")
+print(response)
+
+
